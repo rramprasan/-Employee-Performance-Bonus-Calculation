@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Create a Database
+You can either:
+
+Create a new database manually:
+Name: employee
+Set collation: utf8mb4_unicode_ci
+
+Admin Login Credentials
+
+Email: admin@admin.com
+Password: admin123
+
+Please use token to use api 
+php artisan tinker
+$user = App\Models\User::first(); // or find a specific user
+$token = $user->createToken('MyAppToken')->plainTextToken;
+echo $token;
