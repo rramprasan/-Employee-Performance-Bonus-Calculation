@@ -41,31 +41,6 @@ class BonusController extends Controller
         Mail::to($employee->email)->send(new BonusAssignedMail($employee, $bonus));
         return redirect()->route('bonuses.index')->with('success', 'Bonus assigned successfully.');
     }
-    
-
-    private function calculateBonusPercentage($performanceScore)
-    {
-        if ($performanceScore >= 90) {
-            return 20;
-        } elseif ($performanceScore >= 70) {
-            return 10;
-        } elseif ($performanceScore >= 50) {
-            return 5;
-        }
-        return 0;
-    }
-
-    private function getBonusReason($performanceScore)
-    {
-        if ($performanceScore >= 90) {
-            return 'Excellent Performance';
-        } elseif ($performanceScore >= 70) {
-            return 'Good Performance';
-        } elseif ($performanceScore >= 50) {
-            return 'Satisfactory Performance';
-        }
-        return 'No Bonus - Low Performance';
-    }
 
     public function edit(Bonus $bonus)
     {

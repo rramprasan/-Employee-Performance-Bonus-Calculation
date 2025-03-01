@@ -117,12 +117,12 @@ public function dashboard()
     $employee=Employee::where('user_id',Auth::user()->id)->first();
     $bonuses = Bonus::where('employee_id', $employee->id)->get();
    
-    $performanceBonus = $this->calculateBonus($employee->performance_score, $employee->salary);
-    $totalBonus = $performanceBonus['amount'] + $bonuses->sum('bonus_amount');
+    
+    $totalBonus = $bonuses->sum('bonus_amount');
     // dd($totalBonus);
     $finalSalary = $employee->salary + $totalBonus;
     // dd($finalSalary);
-    return view('employee.dashboard', compact('employee', 'bonuses', 'performanceBonus', 'totalBonus', 'finalSalary'));
+    return view('employee.dashboard', compact('employee', 'bonuses', 'totalBonus', 'finalSalary'));
 }
 
 private function calculateBonus($score, $salary)

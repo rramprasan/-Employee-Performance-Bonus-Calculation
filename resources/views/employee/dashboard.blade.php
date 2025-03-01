@@ -5,7 +5,6 @@
 @section('content')
     <h2>Welcome, {{ $employee->name }}!</h2>
     
-    <p>Your Performance Score: <strong>{{ $employee->performance_score }}</strong></p>
     <p>Base Salary: <strong>{{ number_format($employee->salary, 2) }}</strong></p>
 
     <p>Performance Bonus: <strong>{{ number_format($performanceBonus['amount'], 2) }}</strong> ({{ $performanceBonus['reason'] }})</p>

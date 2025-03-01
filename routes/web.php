@@ -25,8 +25,5 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'employee'])->group(function () {
     Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 });
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/getEmployeesReport', [EmployeeReportController::class, 'getEmployeeBonusReport']);
-    Route::post('/calculate-bonus', [BonusController::class, 'calculateAndAssignBonus']);
-});
+
 
